@@ -1,0 +1,12 @@
+FROM node:20.9.0-bullseye
+
+USER root
+
+RUN npm i -g npm@latest vercel@latest npm-check-updates
+RUN apt-get update && apt-get -y install vim git
+
+COPY ./app /home/node/admin
+RUN chown -R node:node /home/node/admin
+
+USER node
+WORKDIR /home/node/admin

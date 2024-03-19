@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  api:
+    build: 
+      context: .
+      dockerfile: ./infra/api/dev/Dockerfile.dev
+    volumes:
+      - ./api:/var/www/html
+
+
+  app:
+    build: 
+      context: .
+      dockerfile: ./infra/app/dev/Dockerfile.dev
+    ports:
+      - 3000:3000
+      - 6006:6006
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./app:/home/node/admin
+
+  web:
+    build: 
+      context: .
+      dockerfile: ./infra/web/dev/Dockerfile.dev
+    ports:
+      - 80:80
+    volumes:
+      - ./api:/var/www/html

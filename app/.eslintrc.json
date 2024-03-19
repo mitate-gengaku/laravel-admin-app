@@ -1,0 +1,69 @@
+{
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "next/core-web-vitals",
+    "next",
+    "plugin:storybook/recommended",
+    "prettier",
+    "plugin:tailwindcss/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["import", "unused-imports", "@typescript-eslint", "tailwindcss"],
+  "rules": {
+    "@typescript-eslint/no-misused-promises": "off",
+    "@next/next/no-img-element": "off",
+    "tailwindcss/enforces-shorthand": "off",
+    "tailwindcss/no-custom-classname": "off",
+    "@typescript-eslint/no-floating-promises": "off",
+    "array-bracket-newline": [
+      "error",
+      {
+        "multiline": true
+      }
+    ],
+    "arrow-spacing": [
+      "error",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "block-spacing": ["error", "always"],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "alphabetize": {
+          "order": "asc"
+        },
+        "newlines-between": "always"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "warn",
+      {
+        "bundledDependencies": false
+      }
+    ],
+    "sort-vars": [
+      "error",
+      {
+        "ignoreCase": true
+      }
+    ],
+    "sort-imports": "off",
+    "unused-imports/no-unused-imports": "error"
+  }
+}
